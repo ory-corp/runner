@@ -12,6 +12,7 @@ mkdir -p /etc/skel/.config/configstore
 echo 'XDG_CONFIG_HOME=$HOME/.config' | tee -a /etc/environment
 
 # Change waagent entries to use /mnt for swapfile
+touch /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=n/ResourceDisk.Format=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=n/ResourceDisk.EnableSwap=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.SwapSizeMB=0/ResourceDisk.SwapSizeMB=4096/g' /etc/waagent.conf
